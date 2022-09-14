@@ -1,0 +1,93 @@
+<div class="row animate__animated animate__zoomIn">
+  		 <div class="col-md-12 py-2 bg-white rounded-lg shadow-sm">
+  		 
+            <h5 class="my-3">CREATE PRODUCTS<i class="fa fa-circle-o-notch close fa-spin create-products-lodader d-none" style="font-size:18px"></i></h5>
+
+            
+            <form method="post" enctype="multipart/form-data" class="create-product-form">
+                <div class="row">
+                    <div class="col-md-6">
+                    	<input type="hidden" value="insert" name="opt" >
+                        <input type="text" name="title" placeholder="ENTER PRODUCTS TITLE" class="form-control mb-3 rounded-0" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <select name="brands" required="required" class="rounded-0 form-control brands-drop">
+                            <option value="">Select brands</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="description">DESCRIPTION</label>
+                        <textarea rows="10" class="rounded-0 form-control mb-3" id="description" name="description" required="required"></textarea>
+                    </div>
+                    <div class="col-md-6 py-3">
+                        <label for="price">PRICE</label>
+                        <input type="number" name="price" class="rounded-0 form-control" id="price" placeholder="2000" required="required">
+                    </div>
+
+                     <div class="col-md-6 py-3">
+                        <label for="quantity">QUANTITY</label>
+                        <input type="number" name="quantity" class="rounded-0 form-control" id="quantity" placeholder="20" required="required">
+                    </div>
+ 
+                    <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden; position: absolute;" class="border">
+                        <input type="file" name="thumb_pic" accept="image/*" style="position: relative;">
+                       
+                           THUMB IMAGE
+                       </div>
+                    </div>
+                     <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden;" class="border">
+                        <input type="file" name="front_pic" accept="image/*">
+                       
+                           FRONT IMAGE
+                       </div>
+                    </div>
+                    <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden;" class="border">
+                        <input type="file" name="top_pic" accept="image/*">
+                       
+                           TOP IMAGE
+                       </div>
+                    </div>
+                    <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden;" class="border">
+                        <input type="file" name="bottom_pic" accept="image/*">
+                       
+                           BOTTOM IMAGE
+                       </div>
+                    </div>
+                    
+                    <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden;" class="border">
+                        <input type="file" name="left_pic" accept="image/*">
+                           LEFT IMAGE
+                       </div>
+                    </div>
+                    <div class="col-md-2 py-3">
+                       <div style="height: 100px;width: 100px;overflow: hidden;" class="border">
+                        <input type="file" name="right_pic" accept="image/*">
+                        
+                           RIGHT IMAGE
+                       </div>
+                    </div>
+                                        
+                     <div class="col-md-10 py-3">
+                       <div class="progress">
+  <div class="progress-bar progress-bar-striped create-products-progress-bar d-none" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+                    </div>
+
+                     <div class="col-md-2 py-3">
+                       <input type="submit" name="submit" value="SUBMIT" class="rounded-0 btn btn-danger float-right create-product-btn" />
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+    </div>
+  	</div>

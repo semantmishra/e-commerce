@@ -1,0 +1,127 @@
+CREATE TABLE category(id INT(11) NOT NULL AUTO_INCREMENT,category_name VARCHAR(50),PRIMARY KEY(id));
+CREATE TABLE brands(id INT(11) NOT NULL AUTO_INCREMENT,category_name varchar(50),brnads VARCHAR(50),PRIMARY KEY(id));
+CREATE TABLE products(id INT(11)NOT NULL AUTO_INCREMENT,category_name VARCHAR(50),
+	            brands VARCHAR(50),
+	            title VARCHAR(100),
+	            description VARCHAR(255),
+	            price FLOAT(20),
+	            quantity INT (10),
+	            thumb_pic VARCHAR(100) NULL,
+	            front_pic VARCHAR(100) NULL,
+	            top_pic VARCHAR(100) NULL,
+	            bottom_pic VARCHAR(100) NULL,
+	            left_pic VARCHAR(100) NULL,
+	            right_pic VARCHAR(100) NULL,
+	            entry_date date NULL,
+	            PRIMARY KEY(id));
+		
+		CREATE TABLE branding(
+					id INT (11) AUTO_INCREMENT,
+					brand_name VARCHAR(50),
+					brand_logo MEDIUMBLOB,
+					domain_name VARCHAR(100),
+					email VARCHAR(100),
+					facebook_url VARCHAR(255),
+					twitter_url VARCHAR(255),
+					address VARCHAR(100),
+					phone INT (12),
+					about_us MEDIUMTEXT,
+					privacy_policy MEDIUMTEXT,
+					cookies_policy MEDIUMTEXT,
+					terms_policy MEDIUMTEXT,
+					PRIMARY KEY(id));
+	
+		CREATE TABLE header_showcase(
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				title_image MEDIUMBLOB,
+				title_text VARCHAR(255),
+				title_size VARCHAR(10),
+				title_color VARCHAR(20),
+				subtitle_text VARCHAR(255),
+				subtitle_size VARCHAR(20),
+				subtitle_color VARCHAR(20),
+				v_align VARCHAR(20),
+				h_align VARCHAR(20),
+				buttons MEDIUMTEXT,
+				PRIMARY KEY(id));
+		CREATE TABLE users(
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				firstname VARCHAR(50),
+				lastname VARCHAR(50),
+				email VARCHAR(100) UNIQUE,
+				mobile VARCHAR(20) UNIQUE, 
+				password VARCHAR(150),
+				address VARCHAR(250),
+				state VARCHAR(20),
+				country VARCHAR(20),
+				pincode INT(11),
+				status VARCHAR(20) DEFAULT 'pending',
+				reg_date datetime DEFAULT CURRENT_TIMESTAMP,
+				PRIMARY KEY(id));
+		
+		CREATE TABLE category_showcase(
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				image MEDIUMBLOB,
+				lable VARCHAR(50),
+				direction VARCHAR(50),
+				PRIMARY KEY(id));
+		CREATE TABLE cart(
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				product_id INT(11),	
+				username VARCHAR(100),
+				PRIMARY KEY(id),
+				FOREIGN KEY (product_id)
+			    REFERENCES products (id)
+			    ON DELETE CASCADE,
+			    FOREIGN KEY (username)
+			    REFERENCES users (email)
+			    ON DELETE CASCADE);
+		
+		CREATE TABLE purchase(
+				id INT (11) NOT NULL AUTO_INCREMENT,
+				product_id INT (25),
+				username VARCHAR(100),
+				payment_mode VARCHAR(25),
+				qnt INT(11),
+				amount FLOAT(25),
+				status VARCHAR(25) DEFAULT 'processing',
+				rating INT(6) DEFAULT 0,
+				comment MEDIUMTEXT NULL,
+				picture MEDIUMBLOB NULL,		
+				purchase_date DATE,
+				purchase_time TIME,
+				dispatched_date DATE null,
+				deliver_date DATE null,
+				PRIMARY KEY (id),
+				FOREIGN KEY (product_id)
+				REFERENCES products (id)
+				ON DELETE CASCADE,
+				FOREIGN KEY (username)
+				REFERENCES users (email)
+				ON DELETE CASCADE);
+		CREATE TABLE delivery_area(
+				id INT (11) NOT NULL AUTO_INCREMENT,
+				country VARCHAR(100),
+				state VARCHAR(100),
+				city VARCHAR(100),
+				pincode INT(12),
+				days VARCHAR(255),
+				payment_mode VARCHAR(12),
+				PRIMARY KEY(id));
+		CREATE TABLE subscriber(
+				id INT (11) NOT NULL AUTO_INCREMENT,
+				email VARCHAR(200),
+				subscriber_date DATE ,
+				PRIMARY KEY(id));
+		CREATE TABLE keywords(
+				id INT (11) NOT NULL AUTO_INCREMENT,
+				p_key VARCHAR(100) ,
+				s_key MEDIUMTEXT,
+				UNIQUE(p_key),
+				PRIMARY KEY(id));
+		
+		CREATE TABLE failds_keywords(
+				id INT (11) NOT NULL AUTO_INCREMENT,
+				keyword MEDIUMTEXT,
+				status VARCHAR(100) DEFAULT 'pending',
+				PRIMARY KEY(id))
