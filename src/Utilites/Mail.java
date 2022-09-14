@@ -24,13 +24,13 @@ public class Mail {
 			
 			javax.mail.Session ses  = javax.mail.Session.getDefaultInstance(p,new Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("semantmishra@gmail.com", "hemant#1994");
+					return new PasswordAuthentication("email", "password");
 				}
 			}); 
 			
 			ses.setDebug(false);
 			Message msg = new MimeMessage(ses);
-			InternetAddress addressfrom = new InternetAddress("semantmishra@gmail.com");
+			InternetAddress addressfrom = new InternetAddress("email");
 			msg.setFrom(addressfrom);
 			InternetAddress addressTo = new InternetAddress(email);
 			msg.addRecipient(Message.RecipientType.TO, addressTo);
